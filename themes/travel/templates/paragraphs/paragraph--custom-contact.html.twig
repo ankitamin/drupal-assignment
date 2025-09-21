@@ -1,0 +1,27 @@
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+] %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }} id="{{ paragraph.bundle|clean_id }}">
+    {% block content %}
+      <section class="contact">
+        <div class="contact__background container-fullwidth">
+          {{ content.field_section_background }}
+        </div>
+        <div class="contact__container container">
+          <div class="contact__text">
+            <h2 class="contact__title">{{ content.field_contact_title }}</h2>
+            <div class="contact__description">{{ content.field_contact_description }}</div>
+          </div>
+          <div class="contact__form-wrapper">
+            {{ drupal_form('Drupal\\custom_contact_form\\Form\\ContactForm') }}
+          </div>
+        </div>
+      </section>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see \Drupal\Core\Theme\ThemePreprocess::preprocessRegion()
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {{ content }}
+    <div class="search_cta">
+    <a  href="javascript:void(0)" class"search_section--cta" role="button" arial-label="Search Button">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1218_236)">
+<path d="M9.625 16.5C13.422 16.5 16.5 13.422 16.5 9.625C16.5 5.82804 13.422 2.75 9.625 2.75C5.82804 2.75 2.75 5.82804 2.75 9.625C2.75 13.422 5.82804 16.5 9.625 16.5Z" stroke="#0F1922" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.4863 14.4866L19.2498 19.2501" stroke="#0F1922" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1218_236">
+<rect width="22" height="22" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+    </a>
+</div>
+  </div>
+{% endif %}

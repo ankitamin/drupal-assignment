@@ -1,0 +1,146 @@
+@use "../abstracts/main" as *;
+
+.text-with-image {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(40);
+    flex-direction: column;
+    align-items: center;
+
+    @include mq(xl) {
+      flex-direction: row;
+      gap: rem(80);
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  &__subtitle {
+    margin-bottom: $space-20;
+    letter-spacing: 2%;
+    margin-top: 0;
+  }
+
+  &__description {
+    margin-bottom: $space-20;
+    @extend %body-large-style;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 rem(20);
+    border-left: 4px solid $light-blue; // cyan accent
+    counter-reset: package-counter; // start custom counter
+
+    @include mq(xl) {
+      padding: 0 0 0 rem(32);
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: $space-20;
+      @include mq(xl) {
+        margin-bottom: $space-32;
+      }
+      &::before {
+        box-sizing: border-box;
+        counter-increment: package-counter;
+        content: counter(package-counter); // just number
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 52px;
+        height: 45px;
+        margin-right: 1rem;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        font-size: rem(24);
+        background: rgb(255, 255, 255, 0.1);
+
+        @include mq(xl) {
+          font-size: rem(32);
+          width: 52px;
+          height: 52px;
+        }
+      }
+    }
+
+    h3 {
+      @extend %h3-large-style;
+      margin-bottom: $space-5;
+
+      @include mq(xl) {
+        margin-bottom: $space-8;
+      }
+
+      margin-top: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(48);
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__name {
+    @include font-semibold();
+    margin: 0;
+  }
+
+  &__info {
+    font-size: rem(20);
+    color: #fff;
+    margin: 0;
+  }
+
+  &__button {
+    display: inline-block;
+    margin-top: $space-20;
+    @include button-style(true);
+
+    @include mq(xl) {
+      margin-top: $space-40;
+    }
+  }
+
+  &__images {
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: $space-16;
+
+      @include mq(xl) {
+        margin-top: $space-32;
+      }
+    }
+  }
+
+  &__image {
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    width: 100%;
+
+    @include mq(lg) {
+      width: 600px;
+    }
+  }
+}

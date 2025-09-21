@@ -1,0 +1,14 @@
+name: Paragraph Blocks
+type: module
+description: Provides blocks for placing paragraphs into layout builder layouts.
+core_version_requirement: ^10 || ^11
+package: Paragraphs
+configure: paragraph_blocks.settings
+dependencies:
+  - ctools:ctools
+  - paragraphs:paragraphs
+
+# Information added by Drupal.org packaging script on 2025-07-21
+version: '4.1.6'
+project: 'paragraph_blocks'
+datestamp: 1753108429

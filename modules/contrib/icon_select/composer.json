@@ -1,0 +1,16 @@
+{
+    "name": "drupal/icon_select",
+    "description": "Icon selector",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "require": {
+        "enshrined/svg-sanitize": ">=0.9 <1.0"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^10 || ^11"
+            }
+        }
+    }
+}

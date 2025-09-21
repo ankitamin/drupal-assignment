@@ -13,7 +13,18 @@
         "drupal/core": "self.version",
         "drupal/core-project-message": "self.version",
         "drupal/core-recipe-unpack": "self.version",
-        "drupal/core-vendor-hardening": "self.version"
+        "drupal/core-vendor-hardening": "self.version",
+        "drupal/icon_select": "^3.0",
+        "drupal/layout_builder_restrictions": "^3.0",
+        "drupal/layout_builder_styles": "^2.1",
+        "drupal/paragraph_blocks": "^4.1",
+        "drupal/paragraphs": "^1.19",
+        "drupal/svg_image": "^3.2",
+        "drupal/token": "^1.16",
+        "drupal/twig_tweak": "^3.4",
+        "drupal/viewsreference": "^2.0@beta",
+        "drupal/webform": "^6.3@beta",
+        "drush/drush": "^13.6"
     },
     "conflict": {
         "dealerdirect/phpcodesniffer-composer-installer": "1.1.0"

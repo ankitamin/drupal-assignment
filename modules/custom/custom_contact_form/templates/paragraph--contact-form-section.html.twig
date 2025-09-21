@@ -1,0 +1,10 @@
+<div class="contact-section" {% if content.field_bg_image.0['#media'] is defined %} style="background-image: url('{{ file_url(content.field_bg_image.0['#media'].field_media_image.entity.uri.value) }}')" {% endif %}>
+  <div class="contact-text">
+    <h2>{{ content.field_title }}</h2>
+    <div class="description">{{ content.field_description }}</div>
+  </div>
+
+  <div class="contact-form-wrapper">
+    {{ drupal_form('Drupal\\custom_contact_form\\Form\\ContactForm') }}
+  </div>
+</div>
