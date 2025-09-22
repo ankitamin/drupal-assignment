@@ -1,0 +1,80 @@
+@use "../abstracts/main" as *;
+
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.menu--main {
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: rem(30);
+    height: rem(22);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+    &-bar {
+      display: block;
+      width: 100%;
+      height: rem(3);
+      background-color: $secondary-color;
+      border-radius: rem(2);
+      transition: all 0.3s ease;
+    }
+  }
+
+  ul.menu {
+    display: flex;
+    gap: rem(20);
+    list-style: none;
+
+    .menu-item {
+      list-style: none;
+
+      a {
+        @extend %body-font-style;
+        color: $secondary-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include mqmax(xl) {
+    &__hamburger {
+      display: flex;
+    }
+
+    ul.menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: $white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: $space-20;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 0;
+      margin-left: 0;
+
+      .menu-item a {
+        font-size: rem(20);
+        color: $secondary-color;
+      }
+
+      &--open {
+        transform: translateX(0);
+      }
+    }
+  }
+}

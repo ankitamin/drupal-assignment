@@ -1,0 +1,182 @@
+@use "../abstracts/main" as *;
+
+.hero-banner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $white;
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      aspect-ratio: 5 / 5;
+
+      @include mq(xl) {
+        height: 100%;
+      }
+
+      @include mq(xxl) {
+        aspect-ratio: 4 / 5;
+      }
+
+      @include mq(hd) {
+        aspect-ratio: 3 / 3;
+      }
+
+      @include mq(fhd) {
+        aspect-ratio: auto;
+      }
+    }
+  }
+
+  &__content {
+    max-width: rem(640);
+    margin-top: rem(100);
+    padding-bottom: $space-64;
+    color: $white;
+
+    @include mq(xl) {
+      margin-top: rem(380);
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    @extend %h1-style;
+    color: $white;
+  }
+
+  &__description {
+    @extend %body-large-style;
+
+    div {
+      color: $white;
+      line-height: normal;
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    margin-top: $space-24;
+
+    a {
+      @include button-base;
+    }
+  }
+
+  &__featured {
+    @include mqmax(xl) {
+      background: $secondary-color;
+    }
+
+    @include mq(xl) {
+      padding-top: $space-100;
+    }
+  }
+}
+
+.featured-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: rem(64) 0;
+
+  @include mq(xl) {
+    grid-template-columns: 1fr 1fr;
+    padding: rem(120) 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @extend %h2-style;
+    color: $white;
+  }
+
+  &__subtitle {
+    @extend %h3-style;
+  }
+
+  &__description {
+    @extend %body-font-style;
+    margin: $space-20 0;
+
+    .field__item {
+      border-left: 4px solid $light-blue;
+      padding-left: $space-40;
+    }
+  }
+
+  &__thumbnails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+
+    .field__item {
+      img {
+        width: 100%;
+        height: rem(150);
+        object-fit: cover;
+
+        @include mq(xl) {
+          width: rem(228);
+          height: rem(228);
+        }
+      }
+
+      &:first-child {
+        grid-column: 1 / span 2;
+
+        img {
+          width: 100%;
+          height: rem(250);
+
+          @include mq(xl) {
+            width: rem(288);
+            height: rem(480);
+          }
+        }
+
+        @include mq(xl) {
+          grid-column: auto;
+          grid-row: span 2;
+        }
+      }
+    }
+  }
+
+  &__thumbnail {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 0.25rem;
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+
+    a {
+      @include button-base;
+
+      &.btn {
+        &--icon-right {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+@use "../abstracts/main" as *;
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  @include font-regular;
+  color: $white;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.container-fullwidth {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: 100vw;
+  background: linear-gradient(180deg, rgba(15, 25, 34, 0) 0%, #0f1922 31.4%);
+  overflow-x: hidden;
+
+  @include mqmax(xxxl) {
+    padding: 0 $space-20;
+  }
+}
+
+.container__full-width {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: 100vw;
+  background: linear-gradient(180deg, rgba(15, 25, 34, 0) 0%, #0f1922 31.4%);
+  overflow-x: hidden;
+  padding: $space-40 $space-20;
+
+  @include mq(xl) {
+    padding: $space-120 $space-20;
+  }
+
+  @include mq(xxxl) {
+    padding: $space-120 0;
+  }
+
+  &--dblue {
+    background: $primary-color;
+  }
+
+  &--lblue {
+    background: $secondary-color;
+  }
+
+  .layout-builder-block {
+    background-color: transparent;
+  }
+}
+
+.viewsreference--view-title {
+  display: none;
+}
+
+h1 {
+  @extend %h1-style;
+}
+
+h2 {
+  @extend %h2-style;
+  margin-top: 0;
+}
+
+h3 {
+  @extend %h3-style;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
